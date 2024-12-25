@@ -1,5 +1,9 @@
 # Stage 1: Build the application
 FROM openjdk:21 AS build
+
+# Cài đặt Maven
+RUN apt-get update && apt-get install -y maven
+
 WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
